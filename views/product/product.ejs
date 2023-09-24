@@ -1,0 +1,6 @@
+<div>
+   <div> <%= product.name %> </div>
+   <div> <%= product.price %> </div>
+</div>
+<% if (user!="anonimus")  %>
+   <a href="/order/<%= product.id %>/<%= user.id %>" >Buy Product</a>

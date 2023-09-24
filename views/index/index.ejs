@@ -1,0 +1,14 @@
+<form action="/customer/add" method="POST">
+    <button type="submit" height="100" width="100">GO</button> 
+</form>
+<form method="POST" action="/customer/delete?_method=DELETE">
+    <button type="submit">DELETE</button>
+</form>
+<a href="/product">Go To Products</a>
+<div>
+<a href="/login">Login</a>
+</div>
+<div>
+<% if (user!="anonimus") { %>
+    <a href="/order" >Go To Orders</a> 
+</div>

@@ -1,0 +1,90 @@
+'use strict';
+
+var Sequelize = require('sequelize-cockroachdb');
+
+const connectionString ="postgresql://ilija:apMzphHtRGyeKr4pEWun5w@superb-pup-4431.7tc.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
+const sequelize = new Sequelize(connectionString, {
+  dialectOptions: {cockroachdbTelemetryDisabled : true}
+});
+
+// if (process.env.ADDR === undefined) {
+//   throw new Error("ADDR (database URL) must be specified.");
+// }
+
+// var sequelize = new Sequelize(process.env.ADDR, {
+//   dialectOptions: {cockroachdbTelemetryDisabled : true}
+// });
+var DataTypes = Sequelize.DataTypes;
+
+if (!Sequelize.supportsCockroachDB) {
+  throw new Error("CockroachDB dialect for Sequelize not installed");
+}
+
+module.exports.Customer = sequelize.define('customer', {
+  name: DataTypes.STRING,
+  email:  DataTypes.STRING,
+  password: DataTypes.STRING
+}, {
+  timestamps: false
+});
+
+module.exports.customerToJSON = function(customer) {
+  return {
+    id: parseInt(customer.id),
+    name: customer.name
+  };
+};
+
+module.exports.Order = sequelize.define('order', {
+  customer_id: DataTypes.INTEGER,
+  product_id:DataTypes.INTEGER,
+  //subtotal: DataTypes.DECIMAL(18, 2)
+  DateOfPurchase:{
+    type: Date,
+    required: true,
+    default: Date.now
+},
+}, {
+  timestamps: false
+});
+
+module.exports.orderToJSON = function(order) {
+  return{
+    id: parseInt(order.id),
+    subtotal: order.subtotal,
+    customer: {
+      id: order.customer_id
+    }
+  };
+};
+
+module.exports.OrderProduct = sequelize.define('order_products', {
+  order_id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true
+  },
+  product_id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true
+  }
+}, {
+  timestamps: false
+});
+
+module.exports.Product = sequelize.define('product', {
+  name: DataTypes.STRING,
+  price: DataTypes.DECIMAL(18, 2)
+}, {
+  timestamps: false
+});
+
+module.exports.productToJSON = function(product) {
+  return {
+    id: parseInt(product.id),
+    name: product.name,
+    price: product.price,
+  };
+};
+
+module.exports.sequelize = sequelize;
+module.exports.Sequelize = Sequelize;
