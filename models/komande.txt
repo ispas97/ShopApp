@@ -1,0 +1,1 @@
+cockroach start --certs-dir=certs --store=node1 --listen-addr=localhost:26258 --http-addr=localhost:8081 --join=localhost:26258,localhost:26259,localhost:26260
