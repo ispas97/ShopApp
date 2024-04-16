@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/orders_customer.css">
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+    <div class="products">
+        <% products.forEach( product=> { %>
+            <% if (product.description=="bought") { %>
+            <div>
+                <div>
+                    <img height="150" width="100" alt="Something something" src="../images/<%= product.picture%>"   >
+                </div>
+                <div class="product_name"><%= product.name %></div>
+                <div><%= product.price %></div>
+                <div><a href="/order/<%= product.id %>/<%= customer.id %>">Show more</a></div>
+            </div>
+            <% } %>    
+        <% }) %>
+    </div>
+<div><a href="/" >Go Back</a></div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<% orders.forEach(order=>{ %>
+    <div>
+        <a href="/order/<%= order.product_id %>/<%= order.customer_id %>">Go to order</a>
+    </div>
+<% }) %>

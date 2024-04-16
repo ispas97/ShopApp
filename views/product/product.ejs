@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/product_product.css">
+        <meta charset="UTF-8">
+        
+    </head>
+<body>
+   <div class="product">
+      <div>
+         <img height="450" width="300" alt="Something something" src="/images/<%= product.picture%>"   >
+      </div>
+      <div>
+         <div class="product_name"> <%= product.name %> </div>
+         <div> <%= product.price %> </div>
+         <form action="/order/shoppingCart" method="POST" >
+            <input type="text" value="<%=product.id%>" name="productid" hidden>
+            <button type="submit" >To shopping cart</button>
+         </form>
+         <div>
+            <a href="/product">Go Back</a>
+         </div>
+      </div>
+   </div>   
+</body>
+</html>

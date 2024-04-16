@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/shopping_cart.css">
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+    <div class="products">
+        <% products.forEach( product=> { %>
+            <% if (product.description=="shopping cart") {%>
+            <div>
+                <div>
+                    <img height="150" width="100" alt="Something something" src="../images/<%= product.picture%>"   >
+                </div>
+                <div class="product_name"><%= product.name %></div>
+                <div><%= product.price %></div>
+                    <form action="/product/<%= product.id %>" method="POST" >
+                        <button type="submit">Buy</button>
+                    </form>
+                    <form action="/product/<%= product.id %>/delete" method="POST" >
+                        <button type="submit">Delete</button>
+                    </form>
+
+            </div>   
+          <% } %> 
+        <% }) %>
+    </div>
+<div><a href="/" >Go Back</a></div>
+</body>
+</html>

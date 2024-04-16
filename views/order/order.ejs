@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/order_product.css">
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+        <div class="product">
+            <div>
+                <img height="150" width="100" alt="Something something" src="/images/<%= product.picture%>"   >
+            </div>
+            <div class="product_name"><%=product.name %></div>
+            <div><%= product.price %></div>
+            <% if (product.description=="bought") {%>
+            <a href="/order/<%= product.id %>/<%= customerid %>/return">Return</a>
+            <a href="/order/<%= product.id %>/<%= customerid %>/replace">Replace</a>
+            <% } %>
+            <div><%= order.createdAt.toISOString().replace('T',',').split('.')[0] %></div>
+        </div>
+        <a href="/order">Go Back</a>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/product_index.css">
+        <meta charset="UTF-8">
+        
+    </head>
+  <body>
+    <div>
+    <nav class="product-filter">
+
+      <h1>Sports Gear</h1>
+    
+      <div class="sort">
+    
+        <div class="collection-sort">
+          <label>Filter by:</label>
+          <select>
+            <option value="/">All Jackets</option>
+          </select>
+        </div>
+    
+        <div class="collection-sort">
+          <label>Sort by:</label>
+          <select>
+            <option value="/">Featured</option>
+          </select>
+        </div>
+    
+      </div>
+    
+  </nav>
+</div>
+<div class="products">
+    <% products.forEach(product => { %>
+    <% if (product.description != "bought") { %>
+
+    <div  style=" margin: 10px 20px 10px 20px;cursor: pointer; padding-left: 15px;">
+        
+        <div>
+            <img height="150" width="100" src="images/<%= product.picture%>">
+        </div>
+        <div class="product_name"><%= product.name %> </div>
+        <div><%= product.price   %> E  </div>
+        <a href="/product/<%=product.id%>/">Go to product</a>
+
+    </div>
+    <% } %>
+    <% }) %> 
+  </div>
+    <div >
+        <a  href="/order/shoppingCart">Go to shopping cart</a> 
+    </div>
+    <div >
+      <a  href="product/new">Create Product</a> 
+    </div>
+    <br/>
+    <div >
+        <a href="/">Go Back</a>
+    </div>
+  </body>
+</html>

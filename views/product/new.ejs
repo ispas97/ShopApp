@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/product_new.css">
+        <meta charset="UTF-8">
+    </head>
+<body>
+<form action="/product" method="POST" enctype="multipart/form-data">
+    <div>
+        <label>Product Name:</label>
+    </div>
+    <div>
+        <input type="text" name="prodname" required>
+    </div>
+    <div>
+        <label>Price:</label>
+    </div>
+    <div>
+        <input type="number" name="price" required>
+    </div>
+    <div>
+    <div>
+        <label>Image:</label>
+        <input type="file" name="image" />
+    </div>
+        <button type="submit">Create Product</button>
+    </div>
+</form>
+</body>
+</html>
