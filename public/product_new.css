@@ -1,0 +1,14 @@
+form{
+    height:300px;
+    width:300px;
+    background-color: orange;
+    font-family:'Courier New', Courier, monospace;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+label{
+    font-weight: 900;
+    color:white
+}

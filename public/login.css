@@ -1,0 +1,29 @@
+form{
+    margin:0;
+    padding:0;
+    font-family:'Courier New', Courier, monospace;
+    background-color: orange;
+    height:300px;
+    width:300px;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+}
+label{
+    font-weight: 900;
+    color:white
+}
+a{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    color:aqua;
+}
+button{
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+}
